@@ -2,22 +2,20 @@ import { MetaProvider, Title } from "@solidjs/meta";
 import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
-import "./app.scss";
+import "./app.css";
 
 export default function App() {
   return (
     <Router
-      root={props => {
-        console.log(props)
-        return (
-          <MetaProvider>
-            <Title>SolidStart - Basic</Title>
-            <a href="/">Index</a>
-            <a href="/about">About</a>
-            <Suspense>{props.children}</Suspense>
-          </MetaProvider>
-        )
-      }}
+      root={props =>
+      (
+        <MetaProvider>
+          <Title>SolidStart - Basic</Title>
+          <a class="text-3xl font-bold underline" href="/">Index</a>
+          <Suspense>{props.children}</Suspense>
+        </MetaProvider>
+      )
+      }
     >
       <FileRoutes />
     </Router>
